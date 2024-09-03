@@ -56,8 +56,8 @@ export class AutoTypingsCore implements monaco.IDisposable {
       sourceCache: AutoTypingsCore.sharedCache ?? new DummySourceCache(),
       sourceResolver: new UnpkgSourceResolver(),
       debounceDuration: 4000,
-      fileRecursionDepth: 10,
-      packageRecursionDepth: 3,
+      fileRecursionDepth: 3,
+      packageRecursionDepth: 2,
       ...options,
       monaco: monacoInstance,
     });
@@ -114,7 +114,9 @@ export class AutoTypingsCore implements monaco.IDisposable {
 
     const model = this.editor.getModel();
     if (!model) {
-      throw Error('No model');
+      console.error("No model");
+      this.isResolving = false;
+      return;
     }
 
     const content = model.getLinesContent();

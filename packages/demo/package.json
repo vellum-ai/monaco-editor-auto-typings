@@ -4,8 +4,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "yarn start-demo",
-    "build": "yarn build-demo",
+    "start": "npm run start-demo",
+    "build": "npm run build-demo",
     "start-demo": "../../node_modules/.bin/cross-env NODE_ENV=development webpack-dev-server --config webpack.config.ts --mode development",
     "build-demo": "../../node_modules/.bin/cross-env NODE_ENV=production webpack --config webpack.config.ts --mode production"
   },
@@ -29,6 +29,6 @@
   },
   "dependencies": {
     "monaco-editor": "^0.34.0",
-    "monaco-editor-auto-typings": "^0.4.5"
+    "@noa-vellum/monaco-editor-auto-typings": "^0.4.5"
   }
 }
